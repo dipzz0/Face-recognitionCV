@@ -57,6 +57,7 @@ Image 2 | Upload Test Face Image
 
 <img width="472" height="456" alt="image" src="https://github.com/user-attachments/assets/7a5b4d1e-8d90-4eb7-ad85-3bcb6df4faa0" />
 
+
 Recognised Face - Matched
 
 
@@ -64,16 +65,28 @@ Recognised Face - Matched
 
 
 
+
 For (Unknown)
 
 Image 1 | Upload Known Face Image  
-<img width="409" height="394" alt="image" src="https://github.com/user-attachments/assets/3b6ce268-afba-48e7-801a-dce90a4fcce4" />
 
-Image 2 | Upload Test Face Image             
-<img width="311" height="414" alt="image" src="https://github.com/user-attachments/assets/57d2e046-427c-4f67-8581-2fac3fcf2d69" />
+
+<img width="472" height="456" alt="image" src="https://github.com/user-attachments/assets/53949753-5ddc-42ec-9b97-5e0469cd17b6" />
+
+
+Image 2 | Upload Test Face Image  
+
+
+<img width="472" height="630" alt="image" src="https://github.com/user-attachments/assets/f1218ea5-940c-4c05-8b8e-9ffdf07e4bb8" />
+
 
 Recognised Face- Unkonwn
-<img width="377" height="503" alt="image" src="https://github.com/user-attachments/assets/ca43bb56-1d47-49c5-92fb-4e3f648b1e3e" />
+
+
+<img width="472" height="630" alt="image" src="https://github.com/user-attachments/assets/5809661d-d81c-4a20-8875-17037c495c6b" />
+
+
+
 
 Result
 
