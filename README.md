@@ -46,14 +46,10 @@ Example
 
 For (Matched)
 
-Image 1 
-
-Upload Known Face Image 
+Image 1 | Upload Known Face Image 
 <img width="363" height="349" alt="image" src="https://github.com/user-attachments/assets/e10c5219-82f5-4d01-984b-6be0be5ed451" />
 
-Image 2
-
-Upload Test Face Image
+Image 2 | Upload Test Face Image
 <img width="363" height="351" alt="image" src="https://github.com/user-attachments/assets/933610e2-ae7a-44dd-b0f4-afb1349ad679" />
 
 Recognised Face - Matched
@@ -62,14 +58,10 @@ Recognised Face - Matched
 
 For (Unknown)
 
-Image 1   
-
-Upload Known Face Image  
+Image 1 | Upload Known Face Image  
 <img width="409" height="394" alt="image" src="https://github.com/user-attachments/assets/3b6ce268-afba-48e7-801a-dce90a4fcce4" />
 
-Image 2
-
-Upload Test Face Image             
+Image 2 | Upload Test Face Image             
 <img width="311" height="414" alt="image" src="https://github.com/user-attachments/assets/57d2e046-427c-4f67-8581-2fac3fcf2d69" />
 
 Recognised Face- Unkonwn
