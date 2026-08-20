@@ -47,13 +47,15 @@ Example
 For (Matched)
 
 Image 1 | Upload Known Face Image 
-<img width="363" height="349" alt="image" src="https://github.com/user-attachments/assets/e10c5219-82f5-4d01-984b-6be0be5ed451" />
+<img width="472" height="456" alt="image" src="https://github.com/user-attachments/assets/e2fcd8c9-4bcd-4e43-9139-b3b42f3f3ad9" />
+
 
 Image 2 | Upload Test Face Image
-<img width="363" height="351" alt="image" src="https://github.com/user-attachments/assets/933610e2-ae7a-44dd-b0f4-afb1349ad679" />
+<img width="472" height="456" alt="image" src="https://github.com/user-attachments/assets/7a5b4d1e-8d90-4eb7-ad85-3bcb6df4faa0" />
 
 Recognised Face - Matched
-<img width="506" height="489" alt="image" src="https://github.com/user-attachments/assets/ed6ef8f9-aae2-4574-a977-c37de078d263" />
+<img width="472" height="456" alt="image" src="https://github.com/user-attachments/assets/b792a1f5-30e4-4155-86d0-e65695c161a8" />
+
 
 
 For (Unknown)
