@@ -1,97 +1,133 @@
-Face Recognition is a computer vision technique used to identify or verify a person's identity by analyzing facial features. Unlike face detection, which only locates a face in an image, face recognition determines whether the detected face belongs to a known person.
-In this project, the Face Recognition library is used to generate unique facial encodings for the known image and the test image. These facial encodings are then compared to determine whether both images belong to the same person. If the facial features match, the program displays "Matched"; otherwise, it displays "Unknown".
-Face recognition is widely used in security, authentication, access-control, and identity verification applications.
+<p align="center">
+  <img src="assets/banner.svg" alt="Face-recognitionCV Banner" width="100%">
+</p>
 
-Software Requirements
-- Google Colab
-- Python 3.x
-- Face Recognition Library
-- OpenCV
-- Image containing a known face
-- Image containing a test face
+<p align="center">
+  <a href="https://colab.research.google.com/github/dipzz0/Face-recognitionCV/blob/main/Face-recognition.py" target="_blank">
+    <img src="https://img.shields.io/badge/Open_In_Colab-F9AB00?style=for-the-badge&logo=googlecolab&logoColor=white" alt="Open In Colab">
+  </a>
+  <img src="https://img.shields.io/badge/Model-dlib_128D_ResNet-06b6d4?style=for-the-badge" alt="dlib 128D">
+  <img src="https://img.shields.io/badge/Vision-OpenCV_4.x-5c8cb8?style=for-the-badge&logo=opencv&logoColor=white" alt="OpenCV">
+  <img src="https://img.shields.io/badge/Threshold-Distance_<0.40-10b981?style=for-the-badge" alt="Threshold">
+  <img src="https://img.shields.io/badge/License-MIT-0284c7?style=for-the-badge" alt="License">
+</p>
 
-Procedure (Step-by-Step)
+---
 
-Step 1:
-Open Google Colab.
+## ⚡ Overview
 
-Step 2:
-Install the required libraries such as Face Recognition and OpenCV.
+**Face-recognitionCV** is a high-precision computer vision pipeline built with Python and deep metric learning to identify and authenticate individuals between reference and query images.
 
-Step 3:
-Import the required Python libraries.
+Powered by `face_recognition` (built on top of `dlib`'s SOTA deep learning ResNet-34 model), this pipeline maps human facial landmarks into a **128-dimensional embedding space**. By computing the **Euclidean vector distance** between face encodings, the system reliably determines whether two faces belong to the same person with high tolerance for changes in lighting, facial expressions, and poses.
 
-Step 4:
-Upload the known face image.
+---
 
-Step 5:
-Upload the test face image.
+## 🚀 Key Features
 
-Step 6:
-Generate facial encodings for both images.
+- **🔬 128D Facial Metric Learning:** Extracts invariant 128-dimensional numerical vectors capturing structural facial relationships (eye separation, nose bridge, jawline curve).
+- **🎯 Configurable Distance Thresholding:** Applies a strict Euclidean distance threshold (`distance < 0.40`) to balance false acceptance rates (FAR) and false rejection rates (FRR).
+- **📦 Dual-Image Interactive Pipeline:** Seamlessly uploads both a Known Reference Image and a Test Query Image directly inside Google Colab using `google.colab.files`.
+- **🖼️ Automated Annotation:** Automatically detects facial bounding boxes `(top, right, bottom, left)` and draws labeled green identification boxes on the test image.
+- **☁️ Zero-Setup Colab Execution:** Fully pre-configured for instant execution in Google Colab with `opencv-python-headless` and `cv2_imshow`.
 
-Step 7:
-Compare the facial encodings to determine whether they belong to the same person.
+---
 
-Step 8:
-Detect the face location in the test image.
+## 🎮 Workflow & Pipeline Architecture
 
-Step 9:
-Draw a bounding box around the detected face and display the result as Matched or Unknown.
+The flowchart below demonstrates the full biometric verification pipeline:
 
-Step 10:
-Display the final output image.
+```mermaid
+flowchart TD
+    A["Known Reference Image"] --> B["Face Detection & Landmark Extraction"]
+    C["Test Query Image"] --> D["Face Detection & Landmark Extraction"]
+    
+    B --> E["dlib ResNet-34 128D Face Encoding (Vector 1)"]
+    D --> F["dlib ResNet-34 128D Face Encoding (Vector 2)"]
+    
+    E --> G["Calculate Euclidean Vector Distance: d(v1, v2)"]
+    F --> G
+    
+    G --> H{"Is Distance < 0.40?"}
+    H -- "Yes" --> I["Label: MATCHED (Identity Verified)"]
+    H -- "No" --> J["Label: UNKNOWN (No Match)"]
+    
+    I --> K["Locate Bounding Box Coordinates (HOG/CNN)"]
+    J --> K
+    
+    K --> L["Draw OpenCV Bounding Box & Label on Image"]
+    L --> M["Display Final Output via cv2_imshow()"]
+```
 
-Example
+---
 
-For (Matched)
+## 📐 Mathematical Intuition
 
-Image 1 | Upload Known Face Image 
+For a reference face encoding $\mathbf{u} \in \mathbb{R}^{128}$ and a test face encoding $\mathbf{v} \in \mathbb{R}^{128}$, the Euclidean distance $D(\mathbf{u}, \mathbf{v})$ is calculated as:
 
+$$D(\mathbf{u}, \mathbf{v}) = \|\mathbf{u} - \mathbf{v}\|_2 = \sqrt{\sum_{i=1}^{128} (u_i - v_i)^2}$$
 
-<img width="472" height="456" alt="image" src="https://github.com/user-attachments/assets/e2fcd8c9-4bcd-4e43-9139-b3b42f3f3ad9" />
+- **$D(\mathbf{u}, \mathbf{v}) < 0.40$:** Strong confidence match ($\rightarrow$ **Matched**)
+- **$D(\mathbf{u}, \mathbf{v}) \ge 0.40$:** Different identities ($\rightarrow$ **Unknown**)
 
+---
 
-Image 2 | Upload Test Face Image
+## 💻 How to Run in Google Colab
 
+1. **Launch in Colab:**  
+   Click the **"Open In Colab"** badge above or open the script directly in [Google Colab](https://colab.research.google.com).
 
-<img width="472" height="456" alt="image" src="https://github.com/user-attachments/assets/7a5b4d1e-8d90-4eb7-ad85-3bcb6df4faa0" />
+2. **Execute the Code:**  
+   Run the notebook cell to install the necessary packages (`face_recognition`, `opencv-python-headless`).
 
+3. **Upload the Images:**  
+   - First prompt: Upload your **Known Reference Image** (e.g., a clear profile picture of the target person).
+   - Second prompt: Upload your **Test Query Image** (image containing the face you want to verify).
 
-Recognised Face - Matched
+4. **View Results:**  
+   The script computes the Euclidean distance, prints the numerical score to console, and renders the test image with annotated bounding boxes.
 
+---
 
-<img width="472" height="456" alt="image" src="https://github.com/user-attachments/assets/b792a1f5-30e4-4155-86d0-e65695c161a8" />
+## 🌐 Running Locally
 
+To run the project on your local machine:
 
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/dipzz0/Face-recognitionCV.git
+   cd Face-recognitionCV
+   ```
 
+2. **Install dependencies:**
+   ```bash
+   pip install face_recognition opencv-python numpy
+   ```
 
-For (Unknown)
+3. **Run the script:**
+   ```bash
+   python Face-recognition.py
+   ```
+   *(Note: Replace `cv2_imshow` with standard `cv2.imshow()` and `cv2.waitKey(0)` when running locally outside Colab).*
 
-Image 1 | Upload Known Face Image  
+---
 
+## 🛠️ Technology Stack
 
-<img width="472" height="456" alt="image" src="https://github.com/user-attachments/assets/53949753-5ddc-42ec-9b97-5e0469cd17b6" />
+| Component | Library / Framework | Purpose |
+| :--- | :--- | :--- |
+| **Facial Recognition** | [`face_recognition`](https://github.com/ageitgey/face_recognition) | 128D Face Encodings & Landmarks |
+| **Deep Learning Backend**| [`dlib`](http://dlib.net/) | Pre-trained ResNet Face Embeddings |
+| **Image Processing** | `OpenCV (cv2)` | Image decoding, bounding box & text annotation |
+| **Environment** | Google Colab | Cloud GPU/CPU runtime execution |
 
+---
 
-Image 2 | Upload Test Face Image  
+## 📄 License
 
+This repository is distributed under the [MIT License](LICENSE).
 
-<img width="472" height="630" alt="image" src="https://github.com/user-attachments/assets/f1218ea5-940c-4c05-8b8e-9ffdf07e4bb8" />
+---
 
-
-Recognised Face- Unkonwn
-
-
-<img width="472" height="630" alt="image" src="https://github.com/user-attachments/assets/5809661d-d81c-4a20-8875-17037c495c6b" />
-
-
-
-
-Result
-
-The Face Recognition system successfully compares the known and test face images and identifies whether the face is Matched or Unknown, while displaying the detected face with a bounding box.
-
-
-
-
+<p align="center">
+  <b>Developed with ❤️ by <a href="https://github.com/dipzz0">dipzz0</a></b>
+</p>
