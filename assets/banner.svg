@@ -1,0 +1,144 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0f1d" />
+      <stop offset="50%" stop-color="#070a14" />
+      <stop offset="100%" stop-color="#04060b" />
+    </linearGradient>
+
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#06b6d4" stop-opacity="0.12" />
+      <stop offset="100%" stop-color="#06b6d4" stop-opacity="0" />
+    </radialGradient>
+
+    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M 32 0 L 0 0 0 32" fill="none" stroke="#ffffff" stroke-opacity="0.025" stroke-width="1" />
+    </pattern>
+
+    <linearGradient id="cardBg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#111827" />
+      <stop offset="100%" stop-color="#0b0f19" />
+    </linearGradient>
+  </defs>
+
+  <style>
+    .font-sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
+    .font-mono { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace; }
+  </style>
+
+  <!-- Container Base -->
+  <rect width="1200" height="360" fill="url(#bg)" />
+  <rect width="1200" height="360" fill="url(#grid)" />
+  <circle cx="920" cy="180" r="230" fill="url(#glow)" />
+  <rect x="1" y="1" width="1198" height="358" rx="12" fill="none" stroke="#ffffff" stroke-opacity="0.08" stroke-width="1" />
+
+  <!-- Left Column -->
+  <g transform="translate(64, 0)">
+    <g transform="translate(0, 52)">
+      <rect width="258" height="26" rx="13" fill="#1e293b" fill-opacity="0.5" stroke="#334155" stroke-width="1" />
+      <circle cx="14" cy="13" r="4" fill="#06b6d4" />
+      <text x="26" y="17" class="font-mono" font-size="11" font-weight="600" fill="#94a3b8" letter-spacing="0.5">BIOMETRIC AI • 128D EMBEDDINGS</text>
+    </g>
+
+    <g transform="translate(0, 126)">
+      <text x="0" y="0" class="font-sans" font-size="44" font-weight="800" fill="#ffffff" letter-spacing="-0.5">
+        Face-RecognitionCV
+      </text>
+    </g>
+
+    <g transform="translate(0, 162)">
+      <text x="0" y="0" class="font-sans" font-size="16.5" font-weight="400" fill="#94a3b8">
+        Deep metric learning pipeline for 128-dimensional facial verification.
+      </text>
+      <text x="0" y="24" class="font-sans" font-size="14" font-weight="400" fill="#64748b">
+        Calculates Euclidean face distance between reference and query samples in Google Colab.
+      </text>
+    </g>
+
+    <!-- Specs Pills -->
+    <g transform="translate(0, 246)">
+      <g transform="translate(0, 0)">
+        <rect width="118" height="30" rx="6" fill="#111827" stroke="#1f2937" stroke-width="1" />
+        <text x="59" y="19" class="font-mono" font-size="11" font-weight="500" fill="#cbd5e1" text-anchor="middle">Google Colab</text>
+      </g>
+      <g transform="translate(126, 0)">
+        <rect width="138" height="30" rx="6" fill="#111827" stroke="#1f2937" stroke-width="1" />
+        <text x="69" y="19" class="font-mono" font-size="11" font-weight="500" fill="#cbd5e1" text-anchor="middle">dlib ResNet-34</text>
+      </g>
+      <g transform="translate(272, 0)">
+        <rect width="110" height="30" rx="6" fill="#111827" stroke="#1f2937" stroke-width="1" />
+        <text x="55" y="19" class="font-mono" font-size="11" font-weight="500" fill="#cbd5e1" text-anchor="middle">OpenCV 4.x</text>
+      </g>
+      <g transform="translate(390, 0)">
+        <rect width="126" height="30" rx="6" fill="#111827" stroke="#1f2937" stroke-width="1" />
+        <text x="63" y="19" class="font-mono" font-size="11" font-weight="500" fill="#cbd5e1" text-anchor="middle">Vector Distance</text>
+      </g>
+    </g>
+
+    <g transform="translate(0, 308)">
+      <text x="0" y="0" class="font-mono" font-size="11" fill="#475569">Strict thresholding &lt; 0.40 • Sub-pixel face alignment • End-to-end inference</text>
+    </g>
+  </g>
+
+  <!-- Right Column: Minimalist Biometric Card -->
+  <g transform="translate(680, 42)">
+    <rect width="456" height="276" rx="10" fill="url(#cardBg)" stroke="#1e293b" stroke-width="1" />
+    
+    <path d="M 0 10 C 0 4.477 4.477 0 10 0 L 446 0 C 451.523 0 456 4.477 456 10 L 456 34 L 0 34 Z" fill="#0d131f" />
+    <line x1="0" y1="34" x2="456" y2="34" stroke="#1e293b" stroke-width="1" />
+    
+    <circle cx="18" cy="17" r="4.5" fill="#ef4444" fill-opacity="0.75" />
+    <circle cx="32" cy="17" r="4.5" fill="#f59e0b" fill-opacity="0.75" />
+    <circle cx="46" cy="17" r="4.5" fill="#10b981" fill-opacity="0.75" />
+    
+    <text x="228" y="21" class="font-mono" font-size="10.5" font-weight="500" fill="#64748b" text-anchor="middle">biometric.verify // euclidean_metric</text>
+
+    <g transform="translate(24, 52)">
+      <!-- Left Visual: Face Scanner Box -->
+      <g transform="translate(0, 0)">
+        <rect width="210" height="186" rx="8" fill="#080c14" stroke="#172033" stroke-width="1" />
+        
+        <!-- Bounding Box Targeting Reticle -->
+        <rect x="35" y="26" width="140" height="134" rx="4" fill="none" stroke="#06b6d4" stroke-width="1.8" stroke-dasharray="14 112 14" />
+        
+        <!-- Facial Geometry Representation -->
+        <circle cx="105" cy="80" r="38" fill="none" stroke="#334155" stroke-width="1.2" stroke-dasharray="3 3" />
+        <!-- Eyes -->
+        <circle cx="92" cy="74" r="4" fill="#06b6d4" />
+        <circle cx="118" cy="74" r="4" fill="#06b6d4" />
+        <!-- Nose Bridge -->
+        <line x1="105" y1="76" x2="105" y2="88" stroke="#38bdf8" stroke-width="1.5" />
+        <!-- Mouth Line -->
+        <path d="M 96 100 Q 105 106 114 100" fill="none" stroke="#06b6d4" stroke-width="1.5" />
+
+        <!-- Status Tag Inside Reticle -->
+        <rect x="58" y="142" width="94" height="18" rx="3" fill="#06b6d4" fill-opacity="0.15" stroke="#06b6d4" stroke-width="0.8" />
+        <text x="105" y="154" class="font-mono" font-size="9" font-weight="700" fill="#06b6d4" text-anchor="middle">TARGET: MATCHED</text>
+      </g>
+
+      <!-- Right Telemetry Metrics -->
+      <g transform="translate(226, 0)">
+        <!-- Metric 1: Distance -->
+        <g transform="translate(0, 0)">
+          <rect width="182" height="54" rx="6" fill="#080c14" stroke="#172033" stroke-width="1" />
+          <text x="14" y="20" class="font-mono" font-size="9" font-weight="600" fill="#64748b">EUCLIDEAN DISTANCE</text>
+          <text x="14" y="44" class="font-sans" font-size="20" font-weight="800" fill="#ffffff">0.28 <tspan font-size="11" font-weight="600" fill="#06b6d4">&lt; 0.40</tspan></text>
+        </g>
+
+        <!-- Metric 2: Vector Dimension -->
+        <g transform="translate(0, 64)">
+          <rect width="182" height="54" rx="6" fill="#080c14" stroke="#172033" stroke-width="1" />
+          <text x="14" y="20" class="font-mono" font-size="9" font-weight="600" fill="#64748b">FEATURE VECTOR</text>
+          <text x="14" y="42" class="font-mono" font-size="12" font-weight="700" fill="#38bdf8">128-DIM EMBEDDINGS</text>
+        </g>
+
+        <!-- Metric 3: Verification Verdict -->
+        <g transform="translate(0, 128)">
+          <rect width="182" height="58" rx="6" fill="#080c14" stroke="#172033" stroke-width="1" />
+          <text x="14" y="20" class="font-mono" font-size="9" font-weight="600" fill="#64748b">VERDICT</text>
+          <text x="14" y="42" class="font-mono" font-size="13" font-weight="700" fill="#10b981">✓ VERIFIED IDENTITY</text>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
